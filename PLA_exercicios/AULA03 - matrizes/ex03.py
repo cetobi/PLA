@@ -4,8 +4,8 @@ a = [[0,3],[2,-5]]
 b = [[-2,4],[0,-1]]
 c = [[4,2],[-6,0]]
 
-def exibir(a):
-    for linha in a:
+def exibir(m):
+    for linha in m:
         print(linha)
 
 linA = len(a)
