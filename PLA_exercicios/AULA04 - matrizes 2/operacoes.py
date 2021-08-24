@@ -56,3 +56,38 @@ def oposta(M):
 
 def subtrair(A,B):
     return somar(A, oposta(B))
+
+def mIdentidade(matriz):
+    if (len(matriz) != len(matriz[0])):
+        print("Matriz não quadrada.")
+    else:
+        A = []
+        for i in range(len(matriz)):
+            linha = [0]*len(matriz[0])
+            A.append(linha)
+            for j in range(len(matriz[0])):
+                if i == j:
+                    A[i][j] = 1
+                else:   
+                    A[i][j] += A[i][j]
+        return A
+
+def inversa2x2(matriz):
+    if (len(matriz) != len(matriz[0])):
+        print("Matriz não quadrada.")
+    else:
+        a = matriz[0][0]*matriz[1][1]
+        b = matriz[0][1]*matriz[1][0]
+        c = a - b
+        M = []
+        for i in range(len(matriz)):
+            linha = [0]*len(matriz[0])
+            M.append(linha)
+            for j in range(len(matriz[0])):
+                M[i][j] = float(matriz[i][j]/c)
+        d = M[1][1]
+        M[1][1] = M[0][0]
+        M[0][0] = d
+        M[0][1] = -M[0][1]
+        M[1][0] = -M[1][0]
+        return M
