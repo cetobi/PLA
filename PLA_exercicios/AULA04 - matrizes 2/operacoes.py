@@ -91,3 +91,26 @@ def inversa2x2(matriz):
         M[0][1] = -M[0][1]
         M[1][0] = -M[1][0]
         return M
+
+def UmMult(A,D):
+    C = []
+    linA, colA = len(A), len(A[0])
+    B = []
+    for i in range(linA):
+        linha = [0]*colA
+        B.append(linha)
+        for j in range(colA):
+            B[i][j] = D
+
+    linB, colB = len(B), len(B[0])
+
+    if (linA != linB and colA != colB):
+        print("Matrizes não tem a mesma ordem.")
+    else:
+        for i in range(linA):
+            C.append([])
+            for j in range(colB):
+                C[i].append(0)
+                for k in range(colA):
+                    C [i][j] += A[i][k]*B[k][j] 
+    return C
